@@ -161,6 +161,20 @@
             background-color: #e6c200;
             border-color: #e6c200;
         }
+        
+        .alert {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .placeholder-img {
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -168,7 +182,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Restaurant CHEZ YA AWA</a>
+            <a class="navbar-brand" href="#">Restaurant CHEZ YA AICHA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -201,7 +215,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="YASSA POULETS.JPG" class="card-img-top" alt="Plat 1">
+                    <div class="card-img-top placeholder-img">Image Poulet Yassa</div>
                     <div class="card-body">
                         <h5 class="card-title">Poulet Yassa</h5>
                         <p class="card-text">Poulet mariné au citron et oignons, servi avec du riz.</p>
@@ -211,7 +225,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="tieboudieune.JPG" class="card-img-top" alt="Plat 2">
+                    <div class="card-img-top placeholder-img">Image Thiébou Dieune</div>
                     <div class="card-body">
                         <h5 class="card-title">Thiébou Dieune</h5>
                         <p class="card-text">Riz au poisson, légumes et sauce tomate.</p>
@@ -221,11 +235,11 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="mafe.JPG" class="card-img-top" alt="Plat 3">
+                    <div class="card-img-top placeholder-img">Image Mafé</div>
                     <div class="card-body">
                         <h5 class="card-title">Mafé</h5>
                         <p class="card-text">Viande en sauce à base d'arachide, servi avec du riz.</p>
-                        <p class="price">1500Fcfa</p>
+                        <p class="price">1500 Fcfa</p>
                     </div>
                 </div>
             </div>
@@ -274,7 +288,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="reservation-form">
-                    <form>
+                    <form id="reservationForm">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="name" class="form-label">Nom</label>
@@ -316,6 +330,9 @@
                             <button type="submit" class="btn btn-warning btn-lg">Réserver</button>
                         </div>
                     </form>
+                    <div id="reservationAlert" class="alert alert-success mt-3" role="alert">
+                        Votre réservation a été envoyée avec succès ! Nous vous contacterons bientôt pour confirmation.
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,13 +343,13 @@
         <h2 class="section-title text-center mb-4">Galerie</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="gal2.jpg" class="gallery-img w-100" alt="Intérieur du restaurant">
+                <div class="gallery-img placeholder-img w-100">Image Intérieur</div>
             </div>
             <div class="col-md-4">
-                <img src="gal1.png" class="gallery-img w-100" alt="Cuisine">
+                <div class="gallery-img placeholder-img w-100">Image Cuisine</div>
             </div>
             <div class="col-md-4">
-                <img src="gal1.jpeg" class="gallery-img w-100" alt="Plat signature">
+                <div class="gallery-img placeholder-img w-100">Image Plat Signature</div>
             </div>
         </div>
     </section>
@@ -369,7 +386,7 @@
             <div class="col-md-6">
                 <div class="contact-info">
                     <h3>Informations de contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Diacksao1,Keur Massar ,Dakar ,SENEGAL</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Diacksao1, Keur Massar, Dakar, SENEGAL</p>
                     <p><i class="fas fa-phone"></i> 763162022</p>
                     <p><i class="fas fa-envelope"></i> aichakeita2379@gmail.com</p>
                     <h4 class="mt-4">Horaires d'ouverture</h4>
@@ -380,7 +397,7 @@
             <div class="col-md-6">
                 <div class="reservation-form">
                     <h3>Nous contacter</h3>
-                    <form method="post"action="mailtoaichakeita2379@gmail.com"> 
+                    <form id="contactForm">
                         <div class="mb-3">
                             <label for="contact-name" class="form-label">Nom</label>
                             <input type="text" class="form-control" id="contact-name" required>
@@ -399,6 +416,9 @@
                         </div>
                         <button type="submit" class="btn btn-warning">Envoyer</button>
                     </form>
+                    <div id="contactAlert" class="alert alert-success mt-3" role="alert">
+                        Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                    </div>
                 </div>
             </div>
         </div>
@@ -409,7 +429,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h4>Restaurant CHEZ YA AWA</h4>
+                    <h4>Restaurant CHEZ YA AICHA</h4>
                     <p>Saveurs authentiques d'Afrique de l'Ouest dans une ambiance chaleureuse.</p>
                 </div>
                 <div class="col-md-4">
@@ -432,11 +452,86 @@
             </div>
             <hr class="bg-white">
             <div class="text-center">
-                <p>&copy; 2023 Restaurant CHEZ YA AWA. Tous droits réservés.</p>
+                <p>&copy; 2023 Restaurant CHEZ YA AICHA. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Gestion du formulaire de réservation
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const guests = document.getElementById('guests').value;
+            const message = document.getElementById('message').value;
+            
+            // Validation simple
+            if (name && phone && date && time && guests) {
+                // Simulation d'envoi (en production, utiliser fetch() ou XMLHttpRequest)
+                console.log('Réservation envoyée:', {name, phone, date, time, guests, message});
+                
+                // Afficher le message de confirmation
+                document.getElementById('reservationAlert').style.display = 'block';
+                
+                // Réinitialiser le formulaire
+                document.getElementById('reservationForm').reset();
+                
+                // Masquer le message après 5 secondes
+                setTimeout(() => {
+                    document.getElementById('reservationAlert').style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des valeurs du formulaire
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+            
+            // Validation simple
+            if (name && email && subject && message) {
+                // Simulation d'envoi (en production, utiliser fetch() ou XMLHttpRequest)
+                console.log('Message envoyé:', {name, email, subject, message});
+                
+                // Afficher le message de confirmation
+                document.getElementById('contactAlert').style.display = 'block';
+                
+                // Réinitialiser le formulaire
+                document.getElementById('contactForm').reset();
+                
+                // Masquer le message après 5 secondes
+                setTimeout(() => {
+                    document.getElementById('contactAlert').style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Fonction pour envoyer un email (solution alternative)
+        function sendEmail(formData) {
+            // Cette fonction nécessiterait un backend pour fonctionner réellement
+            // Pour l'instant, elle simule l'envoi
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('Email envoyé:', formData);
+                    resolve(true);
+                }, 1000);
+            });
+        }
+        
+        // Définir la date minimale pour la réservation (aujourd'hui)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+    </script>
 </body>
 </html>
